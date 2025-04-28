@@ -16,7 +16,7 @@ const Header = () => {
       <div className='flex items-center'>
         <img src={logo} alt="Logo" className='w-12 h-12 mr-2' />
         <h3 className='text-lg font-semibold text-white'>
-          <span className='text-2xl font-bold'>DOCCAFÉ</span>
+          <span className='text-2xl font-bold'>CEYBANK REST ANURADHAPURA</span>
         </h3>
       </div>
       <div className='w-10 h-10 bg-gray-100 rounded-full flex justify-center items-center relative cursor-pointer' onClick={() => setStatusTab(true)}>

@@ -5,7 +5,7 @@ import MealSelector from '../../components/meal/MealSelector';
 const initialScreen = () => {
   return (
     <>
-    <Navbar />
+    {/* <Navbar /> */}
     <MealSelector />
     </>
   )

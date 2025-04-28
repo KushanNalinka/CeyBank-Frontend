@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { products } from '../../Products';
+import { products } from '../../Store';
 import ProductCart from '../../components/meal/ProductCart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -10,7 +10,7 @@ import ceybank from '../../assets/images/cey.png';
 
 
 const Home = () => {
-  const { meal } = useParams();
+  //const { meal } = useParams();
   const [searchTerm, setSearchTerm] = useState('');
   const { selectedCategory } = useOutletContext();
 
@@ -23,10 +23,10 @@ const Home = () => {
   };
 
   const filteredProducts = products.filter((product) => {
-    const matchesMeal = meal ? product.meal.includes(meal) : true;
+    //const matchesMeal = meal ? product.meal.includes(meal) : true;
     const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory ? product.category === selectedCategory : true;
-    return matchesMeal && matchesSearchTerm && matchesCategory;
+    return matchesSearchTerm && matchesCategory;
   });
 
  

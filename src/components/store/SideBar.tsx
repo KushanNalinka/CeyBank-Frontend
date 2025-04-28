@@ -12,62 +12,24 @@ import {
 } from 'react-icons/fa';
 
 const Sidebar = ({ setSelectedCategory }) => {
-  const { meal } = useParams();
+  //const { meal } = useParams();
   const [activeCategory, setActiveCategory] = useState('');
 
   let categories = [
-    { name: 'Pizza', icon: FaPizzaSlice },
-    { name: 'Fruits', icon: FaAppleAlt },
-    { name: 'Vegie', icon: FaCarrot },
-    { name: 'Ice-Creams', icon: FaIceCream },
-    { name: 'Burgers', icon: FaHamburger },
-    { name: 'Buns', icon: FaHotdog },
-    { name: 'Fish', icon: FaFish },
-    { name: 'Snacks', icon: FaDrumstickBite },
-    { name: 'Soft-Drinks', icon: FaHotdog },
-    { name: 'Roti', icon: FaHotdog },
-    { name: 'Indian', icon: FaHotdog },
-    { name: 'Chineese', icon: FaHotdog },
+    { name: 'preservatives', icon: FaPizzaSlice },
+    { name: 'fruits', icon: FaAppleAlt },
+    { name: 'vegetables', icon: FaCarrot },
+    { name: 'sweets', icon: FaIceCream },
+
+    { name: 'oils', icon: FaHotdog },
+    { name: 'grocery', icon: FaFish },
+    { name: 'rice', icon: FaDrumstickBite },
+    { name: 'grains', icon: FaHotdog },
+    { name: 'spices', icon: FaHotdog },
+    
   ];
 
-  if (meal === 'Breakfast') {
-    categories = [
-      { name: 'Pizza', icon: FaPizzaSlice },
-      { name: 'Fruits', icon: FaAppleAlt },
-      { name: 'Vegie', icon: FaCarrot },
-      { name: 'Burgers', icon: FaHamburger },
-      { name: 'Buns', icon: FaHotdog },
-      { name: 'Fish', icon: FaFish },
-      { name: 'Snacks', icon: FaDrumstickBite },
-      { name: 'Soft-Drinks', icon: FaHotdog },
-      { name: 'Roti', icon: FaHotdog },
-      { name: 'Indian', icon: FaHotdog },
-      { name: 'Chineese', icon: FaHotdog },
-    ];
-  } else if (meal === 'Lunch') {
-    categories = [
-      { name: 'Pizza', icon: FaPizzaSlice },
-      { name: 'Fruits', icon: FaAppleAlt },
-      { name: 'Vegie', icon: FaCarrot },
-      { name: 'Ice-Creams', icon: FaIceCream },
-      { name: 'Soft-Drinks', icon: FaHotdog },
-      { name: 'Roti', icon: FaHotdog },
-      { name: 'Indian', icon: FaHotdog },
-      { name: 'Chineese', icon: FaHotdog },
-    ];
-  } else if (meal === 'Dinner') {
-    categories = [
-      { name: 'Pizza', icon: FaPizzaSlice },
-      { name: 'Fruits', icon: FaAppleAlt },
-      { name: 'Burgers', icon: FaHamburger },
-      { name: 'Buns', icon: FaHotdog },
-      { name: 'Fish', icon: FaFish },
-      { name: 'Snacks', icon: FaDrumstickBite },
-      { name: 'Roti', icon: FaHotdog },
-      { name: 'Indian', icon: FaHotdog },
-      { name: 'Chineese', icon: FaHotdog },
-    ];
-  }
+  
 
   const handleClick = (categoryName) => {
     setSelectedCategory(categoryName);
