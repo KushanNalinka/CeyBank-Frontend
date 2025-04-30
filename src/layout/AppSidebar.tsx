@@ -57,6 +57,12 @@ const navItems: NavItem[] = [
     icon: <PageIcon />,
     subItems: [
       { name: "Guest Registration", path: "/registration", pro: false },
+      { name: "Rooms", path: "/room", pro: false },
+      { name: "Room Types", path: "/roomtypes", pro: false },
+      { name: "Foods", path: "/food", pro: false },
+      { name: "Beverages", path: "/beverages", pro: false },
+      { name: "Daily Foods", path: "/dailyfoods", pro: false },
+      { name: "Daily Beverages", path: "/dailybeverages", pro: false },
       { name: "Meal Ordering", path: "/cashier", pro: false },
       { name: "Blank Page", path: "/blank", pro: false },
       { name: "404 Error", path: "/error-404", pro: false },
@@ -68,6 +74,7 @@ const navItems: NavItem[] = [
     subItems: [
       { name: "Items", path: "/item", pro: false },
       { name: "Store Requistion", path: "/store", pro: false },
+      { name: "Good Requistion", path: "/goods", pro: false },
       { name: "Blank Page", path: "/blank", pro: false },
       { name: "404 Error", path: "/error-404", pro: false },
     ],

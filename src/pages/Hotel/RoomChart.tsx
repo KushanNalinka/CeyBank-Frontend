@@ -145,7 +145,6 @@ interface Props {
   onToggleRoom: (roomName: string) => void;
 }
 
-/* ── helpers ── */
 const enumerateDates = (start: Date, end: Date) => {
   const list: Date[] = [];
   for (let d = new Date(start); d <= end; d = addDays(d, 1)) list.push(new Date(d));
@@ -168,7 +167,14 @@ const StatusBadge: React.FC<{ status: RoomStatus }> = ({ status }) => {
   );
 };
 
-const RoomChart: React.FC<Props> = ({ start, end, rooms, statusMap, selectedRooms, onToggleRoom }) => {
+const RoomChart: React.FC<Props> = ({
+  start,
+  end,
+  rooms,
+  statusMap,
+  selectedRooms,
+  onToggleRoom,
+}) => {
   const days = enumerateDates(start, end);
   const nights = Math.max(1, differenceInCalendarDays(end, start) + 1);
   const gridCols = `150px repeat(${days.length}, 120px)`;
