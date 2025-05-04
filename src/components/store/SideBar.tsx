@@ -10,10 +10,12 @@ import {
   FaFish,
   FaDrumstickBite
 } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = ({ setSelectedCategory }) => {
   //const { meal } = useParams();
   const [activeCategory, setActiveCategory] = useState('');
+  const navigate = useNavigate();
 
   let categories = [
     { name: 'preservatives', icon: FaPizzaSlice },
@@ -74,11 +76,13 @@ const Sidebar = ({ setSelectedCategory }) => {
       {/* Fixed Menu Footer */}
 
      
-        <Link to="/cashier" className="no-underline">
-        <div className="h-16 flex items-center justify-center bg-[#FFC10C] shadow-xl cursor-pointer">
-          <span className="text-xl font-bold text-[#28245F]">Menu</span>
-        
-      </div>
+        <Link to="/" className="no-underline">
+        <div
+      className="h-16 flex items-center justify-center bg-[#FFC10C] shadow-xl cursor-pointer"
+      onClick={() => navigate('/')}
+    >
+      <span className="text-xl font-bold text-[#28245F]">Dashbord</span>
+    </div>
       </Link>
     </div>
   );

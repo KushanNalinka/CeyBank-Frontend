@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { products } from '../../Store';
-import ProductCart from '../../components/meal/ProductCart';
+import ProductCart from '../../components/store/ProductCart';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useOutletContext } from 'react-router-dom';

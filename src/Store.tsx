@@ -48,7 +48,10 @@ export const products = [
       category: 'fruits',
       description: 'Mollit anim consectetur adipisicing aute pariatur ad mollit ad. Officia amet aliqua non laborum dolore sint sit eu sit sunt laboris. Dolor tempor ipsum culpa Lorem ipsum ullamco ullamco dolor sit do. Do proident quis ad laborum et proident laborum. Non voluptate eiusmod aute labore ea aute.',
       slug: 'bingdon-pholstered-chair-swivel',
-      quantity: 12
+      quantity: 2,
+      itemCode: 'ITEM-002',
+  // set your desired reorder thresholds
+  reOrderLevel: 10,
     },
     {
       id: 3,
@@ -321,4 +324,12 @@ export const products = [
       quantity: 37
     }
   ];
-  
+  // Assuming you’ve already imported or defined `products` as above…
+export const productsWithReorder = products.map(product => ({
+  ...product,
+  // give every item a unique code, e.g. “ITEM-001”, “ITEM-002”, …
+  itemCode: `ITEM-${String(product.id).padStart(3, '0')}`,
+  // set your desired reorder thresholds
+  reOrderLevel: 10,
+  maximumReorderLevel: 100,
+}));

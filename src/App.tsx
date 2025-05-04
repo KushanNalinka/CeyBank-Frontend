@@ -25,6 +25,9 @@ import Layout from "./components/meal/Layout";
 import Homen from "./pages/meal/Home";
 import Layoutn from "./components/store/Layout";
 import Homenn from "./pages/store/Home";
+import RoomTypeList from "./pages/RoomTypes/RoomTypeList";
+import RoomList from "./pages/Rooms/RoomList";
+import InventoryItemList from "./pages/Inventory/InventoryItemList";
 
 export default function App() {
   return (
@@ -56,7 +59,13 @@ export default function App() {
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/blank" element={<Blank />} />
             <Route path="/registration" element={<GuestRegistration />} />
-            <Route path="/item" element={<ItemPage />} />
+           
+            <Route path="/roomtypes" element={<RoomTypeList />} />
+            <Route path="/room" element={<RoomList />} />
+            <Route path="/item" element={<InventoryItemList/>} />
+
+
+            {/* Hotel Management */}
 
             {/* Forms */}
             <Route path="/form-elements" element={<FormElements />} />

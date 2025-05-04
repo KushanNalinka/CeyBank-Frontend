@@ -7,14 +7,17 @@ import App from "./App.tsx";
 import { AppWrapper } from "./components/common/PageMeta.tsx";
 import { ThemeProvider } from "./context/ThemeContext.tsx";
 import { CartProvider } from './context/CartContext.tsx'; // adjust the path
+import { StoreProvider } from './context/StoreContext.tsx'; // adjust the path as needed
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
       <AppWrapper>
+        <StoreProvider>
         <CartProvider>
         <App />
         </CartProvider>
+        </StoreProvider>
       </AppWrapper>
     </ThemeProvider>
   </StrictMode>,
