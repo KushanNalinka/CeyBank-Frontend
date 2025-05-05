@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaTimes } from 'react-icons/fa';
+import { usePopup } from '../../context/PopupContext';
 
 export default function EditRoom(props: any) {
   const { initial, isOpen, onClose, onSuccess } = props;
@@ -9,6 +10,16 @@ export default function EditRoom(props: any) {
   const [types, setTypes] = useState<any[]>([]);
   const [selectedType, setSelectedType] = useState(initial.roomType.roomTypeId);
   const [error, setError] = useState('');
+  const { openPopup, closePopup } = usePopup();
+
+  useEffect(() => {
+    if (isOpen) {
+      openPopup();
+    } else {
+      closePopup();
+    }
+    return () => closePopup();
+  }, [isOpen]);
 
   async function fetchTypes() {
     try {

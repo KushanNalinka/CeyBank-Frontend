@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaTimes } from 'react-icons/fa';
+import { usePopup } from '../../context/PopupContext';
+
 
 export default function CreateRoom(props: any) {
   const { isOpen, onClose, onSuccess } = props;
@@ -9,6 +11,17 @@ export default function CreateRoom(props: any) {
   const [types, setTypes] = useState<any[]>([]);
   const [selectedType, setSelectedType] = useState('');
   const [error, setError] = useState('');
+
+  const { openPopup, closePopup } = usePopup();
+
+  useEffect(() => {
+    if (isOpen) {
+      openPopup();
+    } else {
+      closePopup();
+    }
+    return () => closePopup();
+  }, [isOpen]);
 
   async function fetchTypes() {
     try {

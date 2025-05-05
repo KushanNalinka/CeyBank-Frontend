@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaTimes } from 'react-icons/fa';
+import { usePopup } from '../../context/PopupContext';
 
 export default function CreateInventoryItem(props: any) {
   const { isOpen, onClose, onSuccess } = props;
@@ -13,6 +14,16 @@ export default function CreateInventoryItem(props: any) {
   const [reOrderLevel, setReOrderLevel] = useState(0);
   const [maximumReorderLevel, setMaximumReorderLevel] = useState(0);
   const [error, setError] = useState('');
+  const { openPopup, closePopup } = usePopup();
+
+  useEffect(() => {
+    if (isOpen) {
+      openPopup();
+    } else {
+      closePopup();
+    }
+    return () => closePopup();
+  }, [isOpen]);
 
   async function handleCreate() {
     setError('');

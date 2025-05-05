@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaTimes } from 'react-icons/fa';
+import { usePopup } from '../../context/PopupContext';
 
 export default function EditRoomType(props: {
   initial: any;
@@ -14,6 +15,17 @@ export default function EditRoomType(props: {
   const [name, setName] = useState<string>(initial.name);
   const [rate, setRate] = useState<number>(initial.currentRate);
   const [error, setError] = useState<string>('');
+
+  const { openPopup, closePopup } = usePopup();
+  
+    useEffect(() => {
+      if (isOpen) {
+        openPopup();
+      } else {
+        closePopup();
+      }
+      return () => closePopup();
+    }, [isOpen]);
 
   useEffect(() => {
     setName(initial.name);

@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import axios from 'axios';
 import { FaTimes } from 'react-icons/fa';
+import { usePopup } from '../../context/PopupContext';
 
 export default function CreateBeverage(props: any) {
   const { isOpen, onClose, onSuccess } = props;
@@ -16,6 +17,16 @@ export default function CreateBeverage(props: any) {
   const [error, setError] = useState('');
 
   const meals = ['BREAKFAST', 'LUNCH', 'DINNER'];
+  const { openPopup, closePopup } = usePopup();
+
+  useEffect(() => {
+    if (isOpen) {
+      openPopup();
+    } else {
+      closePopup();
+    }
+    return () => closePopup();
+  }, [isOpen]);
 
   function toggleMeal(meal: string) {
     setAvailableForMeals(prev =>

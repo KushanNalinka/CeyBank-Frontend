@@ -3,6 +3,7 @@ import axios from 'axios';
 import { FaPlus, FaEdit, FaTrash } from 'react-icons/fa';
 import CreateRoom from './CreateRoom';
 import EditRoom from './EditRoom';
+import { usePopup } from "../../context/PopupContext"; // 🔥 add this
 
 export default function RoomList() {
   const [rooms, setRooms] = useState<any[]>([]);
@@ -10,6 +11,7 @@ export default function RoomList() {
   const [message, setMessage] = useState('');
   const [showCreate, setShowCreate] = useState(false);
   const [editRoom, setEditRoom] = useState<any>(null);
+  
 
   async function fetchRooms() {
     setLoading(true);

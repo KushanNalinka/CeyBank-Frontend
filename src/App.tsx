@@ -33,7 +33,8 @@ import GoodLayout from "./components/goods/Layout";
 import GoodHome from "./pages/goods/Home";
 import FoodList from "./pages/Foods/FoodList";
 import BeverageList from "./pages/Beverages/BeverageList";
-
+import BeverageLayout from "./components/beverages/Layout";
+import BeverageHome from "./pages/beveragesOrdering/Home";
 
 export default function App() {
   return (
@@ -57,11 +58,17 @@ export default function App() {
           <Route index element={<GoodHome />} />
           {/* <Route path='/cashier/meal/:meal/:slug' element={<Detail />} /> */}
         </Route>
+
+        <Route path='/bar' element={<BeverageLayout/>}>
+          <Route index element={<BeverageHome />} />
+          {/* <Route path='/cashier/meal/:meal/:slug' element={<Detail />} /> */}
+        </Route>
           
           <Route element={<AppLayout />}>
             <Route index path="/" element={<Home />} />
 
             <Route path="/cashier" element={<InitialScreen/>} />
+            
            
   
 
@@ -82,22 +89,22 @@ export default function App() {
             {/* Hotel Management */}
 
             {/* Forms */}
-            <Route path="/form-elements" element={<FormElements />} />
+            {/* <Route path="/form-elements" element={<FormElements />} /> */}
 
             {/* Tables */}
             <Route path="/basic-tables" element={<BasicTables />} />
 
             {/* Ui Elements */}
-            <Route path="/alerts" element={<Alerts />} />
+            {/* <Route path="/alerts" element={<Alerts />} />
             <Route path="/avatars" element={<Avatars />} />
             <Route path="/badge" element={<Badges />} />
             <Route path="/buttons" element={<Buttons />} />
             <Route path="/images" element={<Images />} />
-            <Route path="/videos" element={<Videos />} />
+            <Route path="/videos" element={<Videos />} /> */}
 
             {/* Charts */}
-            <Route path="/line-chart" element={<LineChart />} />
-            <Route path="/bar-chart" element={<BarChart />} />
+            {/* <Route path="/line-chart" element={<LineChart />} />
+            <Route path="/bar-chart" element={<BarChart />} /> */}
           </Route>
 
           {/* Auth Layout */}

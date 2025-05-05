@@ -1,7 +1,8 @@
 // src/components/CreateRoomType.tsx
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaTimes } from 'react-icons/fa';
+import { usePopup } from '../../context/PopupContext';
 
 export default function CreateRoomType(props: {
   isOpen: boolean;
@@ -12,6 +13,16 @@ export default function CreateRoomType(props: {
   const [name, setName] = useState<string>('');
   const [rate, setRate] = useState<number>(0);
   const [error, setError] = useState<string>('');
+  const { openPopup, closePopup } = usePopup();
+
+  useEffect(() => {
+    if (isOpen) {
+      openPopup();
+    } else {
+      closePopup();
+    }
+    return () => closePopup();
+  }, [isOpen]);
 
   async function handleCreate() {
     setError('');
