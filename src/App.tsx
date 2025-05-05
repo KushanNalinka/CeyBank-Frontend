@@ -31,6 +31,9 @@ import InventoryItemList from "./pages/Inventory/InventoryItemList";
 
 import GoodLayout from "./components/goods/Layout";
 import GoodHome from "./pages/goods/Home";
+import FoodList from "./pages/Foods/FoodList";
+import BeverageList from "./pages/Beverages/BeverageList";
+
 
 export default function App() {
   return (
@@ -71,6 +74,9 @@ export default function App() {
             <Route path="/roomtypes" element={<RoomTypeList />} />
             <Route path="/room" element={<RoomList />} />
             <Route path="/item" element={<InventoryItemList/>} />
+
+            <Route path="/foods" element={<FoodList/>} />
+            <Route path="/beverages" element={<BeverageList/>} />
 
 
             {/* Hotel Management */}

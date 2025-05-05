@@ -18,7 +18,7 @@ const Sidebar = ({ setSelectedCategory }) => {
   const navigate = useNavigate();
 
   let categories = [
-    { name: 'preservatives', icon: FaPizzaSlice },
+    { name: 'Preservatives', icon: FaPizzaSlice },
     { name: 'fruits', icon: FaAppleAlt },
     { name: 'vegetables', icon: FaCarrot },
     { name: 'sweets', icon: FaIceCream },
