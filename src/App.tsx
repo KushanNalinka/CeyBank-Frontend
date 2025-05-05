@@ -29,6 +29,9 @@ import RoomTypeList from "./pages/RoomTypes/RoomTypeList";
 import RoomList from "./pages/Rooms/RoomList";
 import InventoryItemList from "./pages/Inventory/InventoryItemList";
 
+import GoodLayout from "./components/goods/Layout";
+import GoodHome from "./pages/goods/Home";
+
 export default function App() {
   return (
     <>
@@ -44,6 +47,11 @@ export default function App() {
 
         <Route path='/store' element={<Layoutn />}>
           <Route index element={<Homenn />} />
+          {/* <Route path='/cashier/meal/:meal/:slug' element={<Detail />} /> */}
+        </Route>
+
+        <Route path='/goods' element={<GoodLayout/>}>
+          <Route index element={<GoodHome />} />
           {/* <Route path='/cashier/meal/:meal/:slug' element={<Detail />} /> */}
         </Route>
           

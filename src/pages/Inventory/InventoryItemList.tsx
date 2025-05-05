@@ -65,12 +65,13 @@ export default function InventoryItemList() {
               {items.map(item => (
                 <li
                   key={item.id}
-                  className="grid grid-cols-7 gap-4 py-3 border-b items-center hover:bg-gray-50"
+                  className="grid grid-cols-8 gap-4 py-3 border-b items-center hover:bg-gray-50"
                 >
                   <span>{item.itemCode}</span>
                   <span>{item.itemName}</span>
                   <span>{item.category}</span>
                   <span>{item.quantity}</span>
+                  <span>{item.unit}</span>
                   <span>{item.reOrderLevel}</span>
                   <span>{item.maximumReorderLevel}</span>
                   <span className="flex justify-end space-x-2">

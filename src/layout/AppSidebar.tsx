@@ -15,7 +15,15 @@ import {
   PlugInIcon,
   TableIcon,
   UserCircleIcon,
+
 } from "../icons";
+import { FaHotel } from "react-icons/fa";
+import { FaStore } from "react-icons/fa";
+import { MdManageAccounts } from "react-icons/md";
+import { FaKitchenSet } from "react-icons/fa6";
+import { IoFastFoodSharp } from "react-icons/io5";
+import { LiaMoneyBillSolid } from "react-icons/lia";
+import { MdBedroomParent } from "react-icons/md";
 import { useSidebar } from "../context/SidebarContext";
 import SidebarWidget from "./SidebarWidget";
 
@@ -32,6 +40,75 @@ const navItems: NavItem[] = [
     name: "Dashboard",
     subItems: [{ name: "Ecommerce", path: "/", pro: false }],
   },
+ 
+  {
+    name: "Hotel",
+    icon: < FaHotel />,
+    subItems: [
+      { name: "Guest Registration", path: "/registration", pro: false },
+
+      { name: "Meal Ordering", path: "/cashier", pro: false },
+    ],
+  },
+  {
+    name: "Rooms",
+    icon: < MdBedroomParent />,
+    subItems: [
+    
+      { name: "Rooms", path: "/room", pro: false },
+      { name: "Room Types", path: "/roomtypes", pro: false },
+     
+    ],
+  },
+  {
+    name: "Bills",
+    icon: < LiaMoneyBillSolid />,
+    subItems: [
+      { name: "Room Charges", path: "/", pro: false },
+      { name: "Meals", path: "/", pro: false },
+      { name: "Beverages", path: "/", pro: false },
+      { name: "Others", path: "/", pro: false },
+      { name: "Total Bills", path: "/", pro: false },
+    ],
+  },
+  {
+    name: "Inventory",
+    icon: <FaStore />,
+    subItems: [
+      { name: "Items", path: "/item", pro: false },
+      { name: "Store Requistion", path: "/store", pro: false },
+    ],
+  },
+  {
+    name: "Management",
+    icon: <MdManageAccounts />,
+    subItems: [
+     
+      { name: "Store Requistion Approve", path: "/store", pro: false },
+      { name: "Good Requistion Approve", path: "/goods", pro: false },
+      
+    ],
+  },
+  {
+    name: "Kitchen",
+    icon: <FaKitchenSet />,
+    subItems: [
+    
+      { name: "Good Requistion", path: "/goods", pro: false },
+      
+    ],
+  },
+  {
+    name: "Foods",
+    icon: <IoFastFoodSharp />,
+    subItems: [
+     
+      { name: "Foods & Meals", path: "/foods", pro: false },
+      { name: "Beverages", path: "/beverages", pro: false },
+    
+    ],
+  },
+  
   {
     icon: <CalenderIcon />,
     name: "Calendar",
@@ -51,33 +128,6 @@ const navItems: NavItem[] = [
     name: "Tables",
     icon: <TableIcon />,
     subItems: [{ name: "Basic Tables", path: "/basic-tables", pro: false }],
-  },
-  {
-    name: "Hotel",
-    icon: <PageIcon />,
-    subItems: [
-      { name: "Guest Registration", path: "/registration", pro: false },
-      { name: "Rooms", path: "/room", pro: false },
-      { name: "Room Types", path: "/roomtypes", pro: false },
-      { name: "Foods", path: "/food", pro: false },
-      { name: "Beverages", path: "/beverages", pro: false },
-      { name: "Daily Foods", path: "/dailyfoods", pro: false },
-      { name: "Daily Beverages", path: "/dailybeverages", pro: false },
-      { name: "Meal Ordering", path: "/cashier", pro: false },
-      { name: "Blank Page", path: "/blank", pro: false },
-      { name: "404 Error", path: "/error-404", pro: false },
-    ],
-  },
-  {
-    name: "Inventory",
-    icon: <PageIcon />,
-    subItems: [
-      { name: "Items", path: "/item", pro: false },
-      { name: "Store Requistion", path: "/store", pro: false },
-      { name: "Good Requistion", path: "/goods", pro: false },
-      { name: "Blank Page", path: "/blank", pro: false },
-      { name: "404 Error", path: "/error-404", pro: false },
-    ],
   },
 ];
 

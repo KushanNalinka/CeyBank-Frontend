@@ -8,6 +8,7 @@ import { AppWrapper } from "./components/common/PageMeta.tsx";
 import { ThemeProvider } from "./context/ThemeContext.tsx";
 import { CartProvider } from './context/CartContext.tsx'; // adjust the path
 import { StoreProvider } from './context/StoreContext.tsx'; // adjust the path as needed
+import { GoodRequestProvider } from './context/GoodRequestContext.tsx'; // adjust the path as needed
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -15,7 +16,9 @@ createRoot(document.getElementById("root")!).render(
       <AppWrapper>
         <StoreProvider>
         <CartProvider>
+        <GoodRequestProvider>
         <App />
+        </GoodRequestProvider>
         </CartProvider>
         </StoreProvider>
       </AppWrapper>
