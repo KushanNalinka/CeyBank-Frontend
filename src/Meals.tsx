@@ -16,8 +16,8 @@ const fetchFoods = async () => {
             slug: item.slug,
             price: item.price,
             portionType: item.portionType,
-            itemCategory: item.itemCategory,
-            availableForMeals: item.availableForMeals
+            category: item.itemCategory,
+            meal: item.availableForMeals
         }));
     } catch (error) {
         console.error('Error fetching foods:', error);

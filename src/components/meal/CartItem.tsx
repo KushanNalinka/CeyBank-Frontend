@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useCart } from '../../context/CartContext';
-import { products } from '../../Products';
+import { products } from '../../Meals';
 
 const CartItem = ({ data }) => {
   const { changeQuantity } = useCart();

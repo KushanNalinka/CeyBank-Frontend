@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../../context/CartContext'; // ✅ using Context API instead of Redux
 
 const ProductCart = (props) => {
-    const { id, name, price, image, category, meal, slug } = props.data;
-    const mealText = Array.isArray(meal) ? meal.join(', ') : meal;
+    const { id, name, price, image, availableForMeals, code, slug } = props.data;
+    const mealText = Array.isArray(availableForMeals) ? availableForMeals.join(', ') : availableForMeals;
+    console.log(mealText); // ✅ check if availableForMeals is an array
 
     const { addToCart, setStatusTab } = useCart(); // ✅ use context
 
@@ -23,6 +24,7 @@ const ProductCart = (props) => {
             </Link>
             <div className='p-2 flex flex-col justify-between flex-grow'>
                 <h3 className='text-sm font-bold text-left'>{name}</h3>
+                <h3 className='text-sm font-bold text-left'>{code}</h3>
                 <div className='flex justify-between items-center mt-2'>
                     <p className='text-sm font-medium text-left'>
                         <span className='text-[#747474]'>Rs {price}.00</span>
