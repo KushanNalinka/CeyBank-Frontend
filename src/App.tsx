@@ -37,6 +37,8 @@ import BeverageLayout from "./components/beverages/Layout";
 import BeverageHome from "./pages/beveragesOrdering/Home";
 import StoreRequistionList from "./pages/storeRequisitionManagement/StoreRequisitionList";
 import StoreRequisitionItems from "./pages/storeRequisitionManagement/StoreRequisitionItems";
+import StoreRequistionGrantList from "./pages/storeRequisitionGranting/StoreRequisitionList";
+import StoreRequisitionGrantItems from "./pages/storeRequisitionGranting/StoreRequisitionItems";
 
 export default function App() {
   return (
@@ -86,8 +88,10 @@ export default function App() {
 
             <Route path="/foods" element={<FoodList/>} />
             <Route path="/beverages" element={<BeverageList/>} />
-            <Route path="/storerequisition" element={<StoreRequistionList />} />
+            <Route path="/storerequisitionapprove" element={<StoreRequistionList />} />
             <Route path="/requisition-items/:id" element={<StoreRequisitionItems />} />
+            <Route path="/storerequisitionmgmt" element={<StoreRequistionGrantList />} />
+            <Route path="/requisition/grant/:id" element={<StoreRequisitionGrantItems />} />
 
 
             {/* Hotel Management */}

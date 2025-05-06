@@ -121,15 +121,15 @@ export default function SignInForm() {
                   </div>
                   <Link
                     to="/reset-password"
-                    className="text-sm text-brand-500 hover:text-brand-600 dark:text-brand-400"
+                    className="text-sm text-yellow-400 hover:text-yellow-600 dark:yellow-500"
                   >
                     Forgot password?
                   </Link>
                 </div>
                 <div>
-                  <Button className="w-full" size="sm">
-                    Sign in
-                  </Button>
+                <button className="flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-yellow-300 shadow-theme-xs hover:bg-yellow-400">
+                Sign In
+                </button>
                 </div>
               </div>
             </form>
@@ -139,7 +139,7 @@ export default function SignInForm() {
                 Don&apos;t have an account? {""}
                 <Link
                   to="/signup"
-                  className="text-brand-500 hover:text-brand-600 dark:text-brand-400"
+                  className="text-yellow-400 hover:text-yellow-400 dark:text-yellow-500"
                 >
                   Sign Up
                 </Link>
