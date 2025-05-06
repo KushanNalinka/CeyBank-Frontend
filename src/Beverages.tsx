@@ -1,9 +1,11 @@
 import axios from 'axios';
+const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
+
 
 const fetchFoods = async () => {
     try {
         // Fetch beverage data
-        const response = await axios.get("http://localhost:8080/api/beverages");
+        const response = await axios.get(`${API_URL}/beverages`);
         const data = response.data;
 
         // Map the API data to the desired structure

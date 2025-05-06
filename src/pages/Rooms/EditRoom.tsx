@@ -11,6 +11,7 @@ export default function EditRoom(props: any) {
   const [selectedType, setSelectedType] = useState(initial.roomType.roomTypeId);
   const [error, setError] = useState('');
   const { openPopup, closePopup } = usePopup();
+  const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
   useEffect(() => {
     if (isOpen) {

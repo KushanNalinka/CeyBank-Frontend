@@ -15,6 +15,7 @@ export default function CreateInventoryItem(props: any) {
   const [maximumReorderLevel, setMaximumReorderLevel] = useState(0);
   const [error, setError] = useState('');
   const { openPopup, closePopup } = usePopup();
+  const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
   useEffect(() => {
     if (isOpen) {

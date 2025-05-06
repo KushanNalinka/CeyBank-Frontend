@@ -138,12 +138,13 @@ export default function InventoryItemList() {
   const [message, setMessage] = useState('');
   const [showCreate, setShowCreate] = useState(false);
   const [editItem, setEditItem] = useState<any>(null);
+   const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
   async function fetchItems() {
     setLoading(true);
     setMessage('');
     try {
-      const res = await axios.get('http://localhost:8080/api/v1/InventoryItem/all');
+      const res = await axios.get(`${API_URL}/v1/InventoryItem/all`);
       setItems(res.data);
     } catch {
       setMessage('Could not load inventory items.');

@@ -146,12 +146,13 @@ export default function BeverageList() {
   const [message, setMessage] = useState('');
   const [showCreate, setShowCreate] = useState(false);
   const [editItem, setEditItem] = useState<any>(null);
+  const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
   async function fetchBevs() {
     setLoading(true);
     setMessage('');
     try {
-      const res = await axios.get('http://localhost:8080/api/beverages');
+      const res = await axios.get(`${API_URL}/beverages`);
       setBevs(res.data);
     } catch {
       setMessage('Could not load beverages.');

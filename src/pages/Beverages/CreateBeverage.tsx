@@ -15,6 +15,7 @@ export default function CreateBeverage(props: any) {
   const [itemCategory, setItemCategory] = useState('');
   const [availableForMeals, setAvailableForMeals] = useState<string[]>([]);
   const [error, setError] = useState('');
+  const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
   const meals = ['BREAKFAST', 'LUNCH', 'DINNER'];
   const { openPopup, closePopup } = usePopup();
@@ -37,7 +38,7 @@ export default function CreateBeverage(props: any) {
   async function handleCreate() {
     setError('');
     try {
-      await axios.post('http://localhost:8080/api/beverages', {
+      await axios.post(`${API_URL}/beverages`, {
         code,
         name,
         image,

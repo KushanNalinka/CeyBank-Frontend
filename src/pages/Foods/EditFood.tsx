@@ -19,6 +19,7 @@ export default function EditFood(props: any) {
   const meals = ['BREAKFAST', 'LUNCH', 'DINNER'];
 
   const { openPopup, closePopup } = usePopup();
+  const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
   useEffect(() => {
     if (isOpen) {

@@ -15,6 +15,7 @@ export default function EditInventoryItem(props: any) {
   const [maximumReorderLevel, setMaximumReorderLevel] = useState(initial.maximumReorderLevel);
   const [error, setError] = useState('');
   const { openPopup, closePopup } = usePopup();
+  const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
   useEffect(() => {
     if (isOpen) {

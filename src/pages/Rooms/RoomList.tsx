@@ -138,7 +138,8 @@ import axios from 'axios';
 import { FaPlus, FaEdit, FaTrash } from 'react-icons/fa';
 import CreateRoom from './CreateRoom';
 import EditRoom from './EditRoom';
-import { usePopup } from "../../context/PopupContext"; // 🔥 add this
+
+
 
 export default function RoomList() {
   const [rooms, setRooms] = useState<any[]>([]);
@@ -146,12 +147,13 @@ export default function RoomList() {
   const [message, setMessage] = useState('');
   const [showCreate, setShowCreate] = useState(false);
   const [editRoom, setEditRoom] = useState<any>(null);
+  const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
   async function fetchRooms() {
     setLoading(true);
     setMessage('');
     try {
-      const res = await axios.get('http://localhost:8080/api/rooms');
+      const res = await axios.get(`${API_URL}/rooms`);
       setRooms(res.data);
     } catch {
       setMessage('Could not load rooms.');

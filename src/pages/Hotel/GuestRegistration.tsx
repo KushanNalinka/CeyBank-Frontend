@@ -44,6 +44,7 @@ const GuestRegistration: React.FC = () => {
   const [step, setStep] = useState(1);
 
   const nights = Math.max(1, differenceInCalendarDays(outDate, inDate) + 1);
+  const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
   // Fetch room types from API on first load
   useEffect(() => {

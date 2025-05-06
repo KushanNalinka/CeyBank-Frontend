@@ -129,19 +129,24 @@ import { FaPlus, FaEdit, FaTrash } from 'react-icons/fa';
 import CreateRoomType from './CreateRoomType';
 import EditRoomType from './EditRoomType';
 
+
 export default function RoomTypeList() {
   const [list, setList] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [message, setMessage] = useState<string>('');
   const [showCreate, setShowCreate] = useState<boolean>(false);
   const [editItem, setEditItem] = useState<any>(null);
+  const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
+
 
   async function fetchAll() {
     setLoading(true);
     setMessage('');
     try {
-      const res = await axios.get('http://localhost:8080/api/room-types');
-      setList(res.data);
+      const res = await axios.get(`${API_URL}/room-types`);
+      
+        setList(res.data);
+     
     } catch {
       setMessage('Could not load room types.');
     } finally {

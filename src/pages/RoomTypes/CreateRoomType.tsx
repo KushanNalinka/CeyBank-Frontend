@@ -14,6 +14,7 @@ export default function CreateRoomType(props: {
   const [rate, setRate] = useState<number>(0);
   const [error, setError] = useState<string>('');
   const { openPopup, closePopup } = usePopup();
+  const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
   useEffect(() => {
     if (isOpen) {
@@ -27,7 +28,7 @@ export default function CreateRoomType(props: {
   async function handleCreate() {
     setError('');
     try {
-      await axios.post('http://localhost:8080/api/room-types', {
+      await axios.post( `${API_URL}/room-types`, {
         name,
         currentRate: rate,
       });

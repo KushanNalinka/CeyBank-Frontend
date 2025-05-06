@@ -37,6 +37,7 @@ const GuestRegistrationNextForm: React.FC<Props> = ({
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
