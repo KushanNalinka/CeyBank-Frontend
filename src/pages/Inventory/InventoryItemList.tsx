@@ -213,7 +213,7 @@ export default function InventoryItemList() {
                     {/* Image */}
                     <span>
                       <img
-                        src={item.imageUrl || 'https://via.placeholder.com/40'}
+                        src={item.image || 'https://via.placeholder.com/40'}
                         alt={item.itemName}
                         className="w-10 h-10 rounded-full object-cover border"
                       />

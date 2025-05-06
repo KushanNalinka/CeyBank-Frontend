@@ -35,6 +35,8 @@ import FoodList from "./pages/Foods/FoodList";
 import BeverageList from "./pages/Beverages/BeverageList";
 import BeverageLayout from "./components/beverages/Layout";
 import BeverageHome from "./pages/beveragesOrdering/Home";
+import StoreRequistionList from "./pages/storeRequisitionManagement/StoreRequisitionList";
+import StoreRequisitionItems from "./pages/storeRequisitionManagement/StoreRequisitionItems";
 
 export default function App() {
   return (
@@ -84,6 +86,8 @@ export default function App() {
 
             <Route path="/foods" element={<FoodList/>} />
             <Route path="/beverages" element={<BeverageList/>} />
+            <Route path="/storerequisition" element={<StoreRequistionList />} />
+            <Route path="/requisition-items/:id" element={<StoreRequisitionItems />} />
 
 
             {/* Hotel Management */}

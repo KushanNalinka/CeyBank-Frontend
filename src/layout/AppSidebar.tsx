@@ -24,6 +24,8 @@ import { FaKitchenSet } from "react-icons/fa6";
 import { IoFastFoodSharp } from "react-icons/io5";
 import { LiaMoneyBillSolid } from "react-icons/lia";
 import { MdBedroomParent } from "react-icons/md";
+import { MdApproval } from "react-icons/md";
+
 import { useSidebar } from "../context/SidebarContext";
 import SidebarWidget from "./SidebarWidget";
 
@@ -81,12 +83,22 @@ const navItems: NavItem[] = [
     ],
   },
   {
+    name: "Approval",
+    icon: <MdApproval />,
+    subItems: [
+     
+      { name: "Store Requistion Approve", path: "/storerequisitionapprove", pro: false },
+      { name: "Good Requistion Approve", path: "/goodrequistionapprove", pro: false },
+      
+    ],
+  },
+  {
     name: "Management",
     icon: <MdManageAccounts />,
     subItems: [
      
-      { name: "Store Requistion Approve", path: "/store", pro: false },
-      { name: "Good Requistion Approve", path: "/goods", pro: false },
+      { name: "Store Requistion Confirmation", path: "/storerequisitionmgmt", pro: false },
+      { name: "Good Requistion Confirmation", path: "/goodrequistionmgmt", pro: false },
       
     ],
   },
