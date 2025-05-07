@@ -51,6 +51,9 @@ const navItems: NavItem[] = [
 
       { name: "Meal Ordering", path: "/cashier", pro: false },
       { name: "Berverages Ordering", path: "/bar", pro: false },
+      { name: "Reservation Details", path: "/reservations", pro: false },
+      { name: "Reserverd Rooms", path: "/reservedrooms", pro: false },
+      { name: "Non Reserved Rooms", path: "/nonreservedrooms", pro: false },
     ],
   },
   {
@@ -119,6 +122,17 @@ const navItems: NavItem[] = [
       { name: "Foods & Meals", path: "/foods", pro: false },
       { name: "Beverages", path: "/beverages", pro: false },
     
+    ],
+  },
+
+   {
+    name: "Finalized Requisitions",
+    icon: <MdManageAccounts />,
+    subItems: [
+     
+      { name: "Finalized Store Requistion", path: "/viewstorerequisition", pro: false },
+      { name: "Finalized Good Requistion", path: "/viewgoodrequistion", pro: false },
+      
     ],
   },
   

@@ -42,7 +42,7 @@ const StoreRequisitionItems: React.FC = () => {
 
   const handleSubmitApproval = () => {
     axios
-      .post('http://localhost:8080/api/v1/store-requisitions/approve-item', {
+      .put('http://localhost:8080/api/v1/store-requisitions/approve-item', {
         itemId: selectedItem?.id,
         approvedQuantity: approveQty,
       })
