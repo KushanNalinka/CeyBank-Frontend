@@ -1,0 +1,35 @@
+name: Deploy Front-end to S3
+on:
+  push:
+    # use your default branch name:
+    branches: [master]        # <- change to main if your branch is called main
+
+permissions:
+  id-token: write             # future-proof for OIDC
+  contents: read
+
+jobs:
+  build-and-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci            # or: yarn install --frozen-lockfile
+
+      - run: npm run build     # Vite outputs to dist/
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id:     ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region:            ${{ secrets.AWS_REGION }}
+
+      - name: Sync to S3
+        uses: jakejarvis/s3-sync-action@v0.5.1
+        with:
+          args: |
+            --delete
+            dist/ s3://${{ secrets.AWS_S3_BUCKET }}/
