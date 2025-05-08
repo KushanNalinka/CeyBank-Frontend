@@ -126,6 +126,159 @@
 // }
 
 
+// import { useState, useEffect } from 'react';
+// import axios from 'axios';
+// import { FaPlus, FaEdit, FaTrash } from 'react-icons/fa';
+// import CreateInventoryItem from './CreateInventoryItem';
+// import EditInventoryItem from './EditInventoryItem';
+
+// export default function InventoryItemList() {
+//   const [items, setItems] = useState<any[]>([]);
+//   const [loading, setLoading] = useState(true);
+//   const [message, setMessage] = useState('');
+//   const [showCreate, setShowCreate] = useState(false);
+//   const [editItem, setEditItem] = useState<any>(null);
+//    const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
+
+//   async function fetchItems() {
+//     setLoading(true);
+//     setMessage('');
+//     try {
+//       const res = await axios.get(`${API_URL}/v1/InventoryItem/all`);
+//       setItems(res.data);
+//     } catch {
+//       setMessage('Could not load inventory items.');
+//     } finally {
+//       setLoading(false);
+//     }
+//   }
+
+//   async function handleDelete(id: number) {
+//     setMessage('');
+//     try {
+//       await axios.delete(`http://localhost:8080/api/v1/InventoryItem/${id}`);
+//       setMessage('Deleted item.');
+//       fetchItems();
+//     } catch {
+//       setMessage('Delete failed.');
+//     }
+//   }
+
+//   useEffect(() => {
+//     fetchItems();
+//   }, []);
+
+//   return (
+//     <div className="min-h-screen bg-gray-100 p-8">
+//       <div className="max-w-6xl mx-auto">
+//         {message && (
+//           <div className="mb-4 p-3 bg-blue-100 border border-blue-300 text-blue-800 rounded">
+//             {message}
+//           </div>
+//         )}
+//         <div className="bg-white p-6 rounded-xl shadow-md">
+//           <div className="flex justify-between items-center mb-4">
+//             <h1 className="text-2xl font-semibold">Inventory Items</h1>
+//             <button
+//               className="p-2 bg-green-500 text-white rounded-full hover:bg-green-600"
+//               onClick={() => setShowCreate(true)}
+//             >
+//               <FaPlus />
+//             </button>
+//           </div>
+
+//           {loading ? (
+//             <p>Loading…</p>
+//           ) : (
+//             <>
+//               {/* Table Headings */}
+//               <div className="grid grid-cols-9 gap-4 py-2 border-b font-semibold text-gray-600">
+//                 <span>Image</span>
+//                 <span>Code</span>
+//                 <span>Name</span>
+//                 <span>Category</span>
+//                 <span>Qty</span>
+//                 <span>Unit</span>
+//                 <span>Re-Order</span>
+//                 <span>Max Reorder</span>
+//                 <span className="text-right">Actions</span>
+//               </div>
+
+//               <ul>
+//                 {items.map(item => (
+//                   <li
+//                     key={item.id}
+//                     className="grid grid-cols-9 gap-4 py-3 border-b items-center hover:bg-gray-50"
+//                   >
+//                     {/* Image */}
+//                     <span>
+//                       <img
+//                         src={item.image || 'https://via.placeholder.com/40'}
+//                         alt={item.itemName}
+//                         className="w-10 h-10 rounded-full object-cover border"
+//                       />
+//                     </span>
+
+//                     <span>{item.itemCode}</span>
+//                     <span>{item.itemName}</span>
+//                     <span>{item.category}</span>
+//                     <span>{item.quantity}</span>
+//                     <span>{item.unit}</span>
+//                     <span>{item.reOrderLevel}</span>
+//                     <span>{item.maximumReorderLevel}</span>
+
+//                     <span className="flex justify-end space-x-2">
+//                       <button
+//                         className="p-1 text-blue-600 hover:text-blue-800"
+//                         onClick={() => setEditItem(item)}
+//                       >
+//                         <FaEdit />
+//                       </button>
+//                       <button
+//                         className="p-1 text-red-600 hover:text-red-800"
+//                         onClick={() => handleDelete(item.id)}
+//                       >
+//                         <FaTrash />
+//                       </button>
+//                     </span>
+//                   </li>
+//                 ))}
+//               </ul>
+//             </>
+//           )}
+//         </div>
+//       </div>
+
+//       <CreateInventoryItem
+//         isOpen={showCreate}
+//         onClose={() => {
+//           setShowCreate(false);
+//           fetchItems();
+//         }}
+//         onSuccess={msg => {
+//           setMessage(msg);
+//           fetchItems();
+//         }}
+//       />
+
+//       {editItem && (
+//         <EditInventoryItem
+//           initial={editItem}
+//           isOpen={true}
+//           onClose={() => {
+//             setEditItem(null);
+//             fetchItems();
+//           }}
+//           onSuccess={msg => {
+//             setMessage(msg);
+//             fetchItems();
+//           }}
+//         />
+//       )}
+//     </div>
+//   );
+// }
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaPlus, FaEdit, FaTrash } from 'react-icons/fa';
@@ -133,19 +286,20 @@ import CreateInventoryItem from './CreateInventoryItem';
 import EditInventoryItem from './EditInventoryItem';
 
 export default function InventoryItemList() {
-  const [items, setItems] = useState<any[]>([]);
+  const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState('');
   const [showCreate, setShowCreate] = useState(false);
-  const [editItem, setEditItem] = useState<any>(null);
-   const API_URL = import.meta.env.VITE_REACT_APP_API_URL;
+  const [editItem, setEditItem] = useState(null);
+
+  const API = import.meta.env.VITE_REACT_APP_API_URL; // e.g. http://localhost:8080/api
 
   async function fetchItems() {
-    setLoading(true);
-    setMessage('');
     try {
-      const res = await axios.get(`${API_URL}/v1/InventoryItem/all`);
-      setItems(res.data);
+      setLoading(true);
+      setMessage('');
+      const { data } = await axios.get(`${API}/v1/InventoryItem/all`);
+      setItems(data);
     } catch {
       setMessage('Could not load inventory items.');
     } finally {
@@ -153,10 +307,9 @@ export default function InventoryItemList() {
     }
   }
 
-  async function handleDelete(id: number) {
-    setMessage('');
+  async function handleDelete(id) {
     try {
-      await axios.delete(`http://localhost:8080/api/v1/InventoryItem/${id}`);
+      await axios.delete(`${API}/v1/InventoryItem/${id}`);
       setMessage('Deleted item.');
       fetchItems();
     } catch {
@@ -176,6 +329,7 @@ export default function InventoryItemList() {
             {message}
           </div>
         )}
+
         <div className="bg-white p-6 rounded-xl shadow-md">
           <div className="flex justify-between items-center mb-4">
             <h1 className="text-2xl font-semibold">Inventory Items</h1>
@@ -191,7 +345,6 @@ export default function InventoryItemList() {
             <p>Loading…</p>
           ) : (
             <>
-              {/* Table Headings */}
               <div className="grid grid-cols-9 gap-4 py-2 border-b font-semibold text-gray-600">
                 <span>Image</span>
                 <span>Code</span>
@@ -200,43 +353,42 @@ export default function InventoryItemList() {
                 <span>Qty</span>
                 <span>Unit</span>
                 <span>Re-Order</span>
-                <span>Max Reorder</span>
+                <span>Max</span>
                 <span className="text-right">Actions</span>
               </div>
 
               <ul>
-                {items.map(item => (
+                {items.map((it) => (
                   <li
-                    key={item.id}
+                    key={it.itemId} /* unique key */
                     className="grid grid-cols-9 gap-4 py-3 border-b items-center hover:bg-gray-50"
                   >
-                    {/* Image */}
                     <span>
                       <img
-                        src={item.image || 'https://via.placeholder.com/40'}
-                        alt={item.itemName}
+                        src={it.image || 'https://via.placeholder.com/40'}
+                        alt={it.itemName}
                         className="w-10 h-10 rounded-full object-cover border"
                       />
                     </span>
 
-                    <span>{item.itemCode}</span>
-                    <span>{item.itemName}</span>
-                    <span>{item.category}</span>
-                    <span>{item.quantity}</span>
-                    <span>{item.unit}</span>
-                    <span>{item.reOrderLevel}</span>
-                    <span>{item.maximumReorderLevel}</span>
+                    <span>{it.itemCode}</span>
+                    <span>{it.itemName}</span>
+                    <span>{it.category}</span>
+                    <span>{it.quantity}</span>
+                    <span>{it.unit}</span>
+                    <span>{it.reOrderLevel}</span>
+                    <span>{it.maximumReorderLevel}</span>
 
                     <span className="flex justify-end space-x-2">
                       <button
                         className="p-1 text-blue-600 hover:text-blue-800"
-                        onClick={() => setEditItem(item)}
+                        onClick={() => setEditItem({ ...it, id: it.itemId })}
                       >
                         <FaEdit />
                       </button>
                       <button
                         className="p-1 text-red-600 hover:text-red-800"
-                        onClick={() => handleDelete(item.id)}
+                        onClick={() => handleDelete(it.itemId)}
                       >
                         <FaTrash />
                       </button>
@@ -251,11 +403,8 @@ export default function InventoryItemList() {
 
       <CreateInventoryItem
         isOpen={showCreate}
-        onClose={() => {
-          setShowCreate(false);
-          fetchItems();
-        }}
-        onSuccess={msg => {
+        onClose={() => setShowCreate(false)}
+        onSuccess={(msg) => {
           setMessage(msg);
           fetchItems();
         }}
@@ -265,11 +414,8 @@ export default function InventoryItemList() {
         <EditInventoryItem
           initial={editItem}
           isOpen={true}
-          onClose={() => {
-            setEditItem(null);
-            fetchItems();
-          }}
-          onSuccess={msg => {
+          onClose={() => setEditItem(null)}
+          onSuccess={(msg) => {
             setMessage(msg);
             fetchItems();
           }}

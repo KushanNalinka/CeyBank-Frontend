@@ -54,6 +54,7 @@ const CartItem = ({ data }) => {
         <div className='flex flex-col'>
           <h3 className='font-bold'>{detail.name}</h3>
           <p className='font-medium'> {quantity}</p>
+          
         </div>
       </div>
       <div className='flex items-center gap-2'>

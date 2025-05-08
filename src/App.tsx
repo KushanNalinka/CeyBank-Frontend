@@ -41,6 +41,7 @@ import StoreRequistionGrantList from "./pages/storeRequisitionGranting/StoreRequ
 import StoreRequisitionGrantItems from "./pages/storeRequisitionGranting/StoreRequisitionItems";
 import FinalStoreRequistion from "./pages/finalizedRequisitions/StoreRequisitionList";
 import FinalStoreRequisitionItems from "./pages/finalizedRequisitions/StoreRequisitionItems";
+import Reservations from "./pages/Hotel/Reservation";
 
 export default function App() {
   return (
@@ -97,6 +98,7 @@ export default function App() {
             
             <Route path="/viewstorerequisition" element={<FinalStoreRequistion />} />
             <Route path="/requisition-final/:id" element={<FinalStoreRequisitionItems />} />
+            <Route path="/reservations" element={<Reservations />} />
 
 
             {/* Hotel Management */}
